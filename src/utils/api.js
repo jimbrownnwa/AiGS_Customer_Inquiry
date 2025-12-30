@@ -2,9 +2,6 @@ const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL || 'https://n8n.srv1234150.
 
 export const submitInquiry = async (formData) => {
   try {
-    console.log('Submitting inquiry:', formData);
-    console.log('Webhook URL:', WEBHOOK_URL);
-
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
 
@@ -19,23 +16,15 @@ export const submitInquiry = async (formData) => {
 
     clearTimeout(timeoutId);
 
-    console.log('Response status:', response.status);
-    console.log('Response ok:', response.ok);
-
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
-      console.error('Error response:', errorData);
       throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
     }
 
     const data = await response.json();
-    console.log('Success response:', data);
     return { success: true, data };
 
   } catch (error) {
-    console.error('Caught error:', error);
-    console.error('Error name:', error.name);
-    console.error('Error message:', error.message);
 
     if (error.name === 'AbortError') {
       return {
