@@ -4,26 +4,12 @@ const Header = () => {
   return (
     <header className="relative z-10 py-8 px-4 text-center animate-fade-in">
       {/* Logo */}
-      <div className="mb-4 flex justify-center items-center gap-3">
-        <div className="relative">
-          <svg width="60" height="60" viewBox="0 0 100 100" className="animate-float">
-            <defs>
-              <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#dd6b20" />
-                <stop offset="100%" stopColor="#ff8c42" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M 20 80 L 50 20 L 80 80 L 65 80 L 50 50 L 35 80 Z"
-              fill="url(#logoGradient)"
-              className="drop-shadow-lg"
-            />
-            <circle cx="50" cy="20" r="8" fill="url(#logoGradient)" className="glow-orange" />
-          </svg>
-        </div>
-        <h1 className="text-5xl md:text-6xl font-display font-bold tracking-tight">
-          Ai<span className="text-aigs-orange">GS</span>
-        </h1>
+      <div className="mb-4 flex justify-center items-center gap-4">
+        <img
+          src="/AiGS logo.png"
+          alt="AiGS Logo"
+          className="h-16 md:h-20 w-auto animate-float drop-shadow-lg"
+        />
       </div>
 
       {/* Tagline */}
