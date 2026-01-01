@@ -2,6 +2,9 @@ const WEBHOOK_URL = import.meta.env.VITE_WEBHOOK_URL || 'https://n8n.srv1234150.
 
 export const submitInquiry = async (formData) => {
   try {
+    console.log('🔍 Webhook URL being used:', WEBHOOK_URL);
+    console.log('🔍 Environment variable:', import.meta.env.VITE_WEBHOOK_URL);
+
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
 
